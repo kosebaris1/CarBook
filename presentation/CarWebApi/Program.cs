@@ -1,6 +1,12 @@
 
+using Application.Features.CQRS.Handler.AboutHandler.Read;
+using Application.Features.CQRS.Handler.AboutHandler.Write;
+using Application.Features.CQRS.Queries;
+using Application.Interfaces;
+using Application.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
+using Persistance.Repository;
 
 namespace CarWebApi
 {
@@ -9,6 +15,15 @@ namespace CarWebApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddAutoMapper(typeof(GeneralProfile).Assembly);
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            builder.Services.AddScoped<GetAboutByIdQueryHandler>();
+            builder.Services.AddScoped<GetAboutQueryHandler>();
+            builder.Services.AddScoped<CreateAboutCommandHandler>();
+            builder.Services.AddScoped<UpdateAboutCommandHandler>();
+            builder.Services.AddScoped<RemoveAboutCommandHandler>();
+
 
             // Add services to the container.
 
