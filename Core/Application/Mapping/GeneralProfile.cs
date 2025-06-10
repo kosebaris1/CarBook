@@ -1,7 +1,9 @@
 ﻿using Application.Features.CQRS.Command.AboutCommand;
 using Application.Features.CQRS.Command.BannerCommand;
+using Application.Features.CQRS.Command.BrandCommand;
 using Application.Features.CQRS.Results.AboutResults;
 using Application.Features.CQRS.Results.BannerResults;
+using Application.Features.CQRS.Results.BrandResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -27,6 +29,12 @@ namespace Application.Mapping
             CreateMap<Banner, CreateBannerCommand>().ReverseMap();
             CreateMap<Banner, UpdateBannerCommand>().ReverseMap();
             CreateMap<Banner, RemoveBannerCommand>().ReverseMap();
+
+            CreateMap<Brand, GetBrandQueryResult>().ReverseMap();
+            CreateMap<Brand, GetBrandByIdQueryResult>().ReverseMap();
+            CreateMap<Brand, CreateBrandCommand>().ReverseMap();
+            CreateMap<Brand, UpdateBrandCommand>().ReverseMap();
+            CreateMap<Brand, RemoveBrandCommand>().ReverseMap();
 
 
 

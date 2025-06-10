@@ -3,6 +3,8 @@ using Application.Features.CQRS.Handler.AboutHandler.Read;
 using Application.Features.CQRS.Handler.AboutHandler.Write;
 using Application.Features.CQRS.Handler.BannerHandlers.Read;
 using Application.Features.CQRS.Handler.BannerHandlers.Write;
+using Application.Features.CQRS.Handler.BrandHandlers.Read;
+using Application.Features.CQRS.Handler.BrandHandlers.Write;
 using Application.Features.CQRS.Queries;
 using Application.Interfaces;
 using Application.Mapping;
@@ -31,6 +33,13 @@ namespace CarWebApi
             builder.Services.AddScoped<CreateBannerCommandHandler>();
             builder.Services.AddScoped<UpdateBannerCommandHandler>();
             builder.Services.AddScoped<RemoveBannerCommandHandler>();
+
+            builder.Services.AddScoped<GetBrandQueryHandler>();
+            builder.Services.AddScoped<GetBrandByIdQueryHandler>();
+            builder.Services.AddScoped<CreateBrandCommandHandler>();
+            builder.Services.AddScoped<UpdateBrandCommandHandler>();
+            builder.Services.AddScoped<RemoveBrandCommandHandler>();
+
 
 
             // Add services to the container.
