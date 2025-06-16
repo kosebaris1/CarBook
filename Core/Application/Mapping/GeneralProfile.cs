@@ -1,9 +1,12 @@
 ﻿using Application.Features.CQRS.Command.AboutCommand;
 using Application.Features.CQRS.Command.BannerCommand;
 using Application.Features.CQRS.Command.BrandCommand;
+using Application.Features.CQRS.Command.CarCommand;
+using Application.Features.CQRS.Handler.CarHandlers.Read;
 using Application.Features.CQRS.Results.AboutResults;
 using Application.Features.CQRS.Results.BannerResults;
 using Application.Features.CQRS.Results.BrandResults;
+using Application.Features.CQRS.Results.CarResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -35,6 +38,13 @@ namespace Application.Mapping
             CreateMap<Brand, CreateBrandCommand>().ReverseMap();
             CreateMap<Brand, UpdateBrandCommand>().ReverseMap();
             CreateMap<Brand, RemoveBrandCommand>().ReverseMap();
+
+            CreateMap<Car, CreateCarCommand>().ReverseMap();
+            CreateMap<Car, UpdateCarCommand>().ReverseMap();
+            CreateMap<Car, RemoveCarCommand>().ReverseMap();
+            CreateMap<Car, GetCarByIdQueryResult>().ReverseMap();
+            CreateMap<Car, GetCarQueryResult>().ReverseMap();
+           
 
 
 

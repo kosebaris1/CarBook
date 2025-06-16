@@ -13,12 +13,10 @@ namespace Application.Features.CQRS.Handler.BannerHandlers.Write
     public class RemoveBannerCommandHandler
     {
         private readonly IRepository<Banner> _repository;
-        private readonly IMapper _mapper;
 
-        public RemoveBannerCommandHandler(IRepository<Banner> repository, IMapper mapper)
+        public RemoveBannerCommandHandler(IRepository<Banner> repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         public async Task Handle(RemoveBannerCommand command)

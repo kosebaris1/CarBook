@@ -14,12 +14,10 @@ namespace Application.Features.CQRS.Handler.BrandHandlers.Write
     {
         private readonly IRepository<Brand> _repository;
 
-        private readonly IMapper _mapper;
 
-        public RemoveBrandCommandHandler(IRepository<Brand> repository, IMapper mapper)
+        public RemoveBrandCommandHandler(IRepository<Brand> repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         public async Task Handle(RemoveBrandCommand commad)

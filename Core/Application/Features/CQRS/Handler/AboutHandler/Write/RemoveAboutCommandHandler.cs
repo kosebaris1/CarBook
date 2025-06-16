@@ -13,16 +13,16 @@ namespace Application.Features.CQRS.Handler.AboutHandler.Write
     public class RemoveAboutCommandHandler
     {
         private readonly IRepository<About> _repository;
-        private readonly IMapper _mapper;
+        
 
-        public RemoveAboutCommandHandler(IRepository<About> repository, IMapper mapper)
+        public RemoveAboutCommandHandler(IRepository<About> repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
         public async Task Handle(RemoveAboutCommand command)
         {
-            var result= _mapper.Map<About>(command);
+            var result = await _repository.GetByIdAsync(command.Id);
+            if(result != null)
             await _repository.RemoveAsync(result);
         }
     }
