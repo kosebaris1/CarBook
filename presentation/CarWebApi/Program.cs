@@ -7,12 +7,16 @@ using Application.Features.CQRS.Handler.BrandHandlers.Read;
 using Application.Features.CQRS.Handler.BrandHandlers.Write;
 using Application.Features.CQRS.Handler.CarHandlers.Read;
 using Application.Features.CQRS.Handler.CarHandlers.Write;
+using Application.Features.CQRS.Handler.CategoryHandler.Read;
+using Application.Features.CQRS.Handler.CategoryHandler.Write;
 using Application.Features.CQRS.Queries;
 using Application.Interfaces;
+using Application.Interfaces.CarInterfaces;
 using Application.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
 using Persistance.Repository;
+using Persistance.Repository.CarRepositories;
 
 namespace CarWebApi
 {
@@ -23,6 +27,7 @@ namespace CarWebApi
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddAutoMapper(typeof(GeneralProfile).Assembly);
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            builder.Services.AddScoped<ICarRepository, CarRepository>();
 
             builder.Services.AddScoped<GetAboutByIdQueryHandler>();
             builder.Services.AddScoped<GetAboutQueryHandler>();
@@ -48,6 +53,15 @@ namespace CarWebApi
             builder.Services.AddScoped<UpdateCarCommandHandler>();
             builder.Services.AddScoped<GetCarByIdQueryHandler>();
             builder.Services.AddScoped<GetCarQueryHandler>();
+
+            builder.Services.AddScoped<GetCarWithBrandQueryHandler>();
+
+
+            builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
+            builder.Services.AddScoped<GetCategoryQueryHandler>();
+            builder.Services.AddScoped<CreateCategoryCommandHandler>();
+            builder.Services.AddScoped<UpdateCategoryCommandHandler>();
+            builder.Services.AddScoped<RemoveCategoryCommandHandler>();
 
 
 
