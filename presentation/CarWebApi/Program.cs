@@ -9,6 +9,8 @@ using Application.Features.CQRS.Handler.CarHandlers.Read;
 using Application.Features.CQRS.Handler.CarHandlers.Write;
 using Application.Features.CQRS.Handler.CategoryHandler.Read;
 using Application.Features.CQRS.Handler.CategoryHandler.Write;
+using Application.Features.CQRS.Handler.ContactHandlers.Read;
+using Application.Features.CQRS.Handler.ContactHandlers.Write;
 using Application.Features.CQRS.Queries;
 using Application.Interfaces;
 using Application.Interfaces.CarInterfaces;
@@ -62,6 +64,12 @@ namespace CarWebApi
             builder.Services.AddScoped<CreateCategoryCommandHandler>();
             builder.Services.AddScoped<UpdateCategoryCommandHandler>();
             builder.Services.AddScoped<RemoveCategoryCommandHandler>();
+
+            builder.Services.AddScoped<GetContactQueryHandler>();
+            builder.Services.AddScoped<GetContactByIdQueryHandler>();
+            builder.Services.AddScoped<CreateContactCommandHandler>();
+            builder.Services.AddScoped<UpdateContactCommandHandler>();
+            builder.Services.AddScoped<RemoveContactCommandHandler>();
 
 
 
