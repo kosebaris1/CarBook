@@ -9,7 +9,7 @@ namespace CarWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactController : ControllerBase
+    public class ContactsController : ControllerBase
     {
         private readonly GetContactQueryHandler _getContactQueryHandler;
         private readonly GetContactByIdQueryHandler _getContactByIdQueryHandler;
@@ -17,7 +17,7 @@ namespace CarWebApi.Controllers
         private readonly UpdateContactCommandHandler _updateContactCommandHandler;
         private readonly RemoveContactCommandHandler _removeContactCommandHandler;
 
-        public ContactController(RemoveContactCommandHandler removeContactCommandHandler, UpdateContactCommandHandler updateContactCommandHandler, CreateContactCommandHandler createContactCommandHandler, GetContactByIdQueryHandler getContactByIdQueryHandler, GetContactQueryHandler getContactQueryHandler)
+        public ContactsController(RemoveContactCommandHandler removeContactCommandHandler, UpdateContactCommandHandler updateContactCommandHandler, CreateContactCommandHandler createContactCommandHandler, GetContactByIdQueryHandler getContactByIdQueryHandler, GetContactQueryHandler getContactQueryHandler)
         {
             _removeContactCommandHandler = removeContactCommandHandler;
             _updateContactCommandHandler = updateContactCommandHandler;

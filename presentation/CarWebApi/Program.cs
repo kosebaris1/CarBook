@@ -15,6 +15,7 @@ using Application.Features.CQRS.Queries;
 using Application.Interfaces;
 using Application.Interfaces.CarInterfaces;
 using Application.Mapping;
+using Application.Services;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
 using Persistance.Repository;
@@ -70,6 +71,8 @@ namespace CarWebApi
             builder.Services.AddScoped<CreateContactCommandHandler>();
             builder.Services.AddScoped<UpdateContactCommandHandler>();
             builder.Services.AddScoped<RemoveContactCommandHandler>();
+
+            builder.Services.AddApplicationService(builder.Configuration);
 
 
 

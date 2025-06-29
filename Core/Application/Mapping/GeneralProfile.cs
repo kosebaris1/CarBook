@@ -11,6 +11,8 @@ using Application.Features.CQRS.Results.BrandResults;
 using Application.Features.CQRS.Results.CarResults;
 using Application.Features.CQRS.Results.CategoryResults;
 using Application.Features.CQRS.Results.ContactResults;
+using Application.Features.Mediator.Commands.FeatureCommand;
+using Application.Features.Mediator.Results.FeatureResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -63,6 +65,12 @@ namespace Application.Mapping
             CreateMap<Contact, CreateContactCommand>().ReverseMap();
             CreateMap<Contact, UpdateContactCommand>().ReverseMap();
             CreateMap<Contact, RemoveContactCommand>().ReverseMap();
+
+            CreateMap<Feature, GetFeatureQueryResult>().ReverseMap();
+            CreateMap<Feature, GetFeatureByIdQueryResult>().ReverseMap();
+            CreateMap<Feature, RemoveFeatureCommand>().ReverseMap();
+            CreateMap<Feature, UpdateFeatureCommand>().ReverseMap();
+            CreateMap<Feature, CreateFeatureCommand>().ReverseMap();
 
 
 
