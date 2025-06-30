@@ -12,7 +12,9 @@ using Application.Features.CQRS.Results.CarResults;
 using Application.Features.CQRS.Results.CategoryResults;
 using Application.Features.CQRS.Results.ContactResults;
 using Application.Features.Mediator.Commands.FeatureCommand;
+using Application.Features.Mediator.Commands.FooterAdressCommand;
 using Application.Features.Mediator.Results.FeatureResults;
+using Application.Features.Mediator.Results.FooterAdressResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -71,6 +73,12 @@ namespace Application.Mapping
             CreateMap<Feature, RemoveFeatureCommand>().ReverseMap();
             CreateMap<Feature, UpdateFeatureCommand>().ReverseMap();
             CreateMap<Feature, CreateFeatureCommand>().ReverseMap();
+
+            CreateMap<FooterAddress, GetFooterAdressQueryResult>().ReverseMap();
+            CreateMap<FooterAddress, GetFooterAdressByIdQueryResult>().ReverseMap();
+            CreateMap<FooterAddress, CreateFooterAdressCommand>().ReverseMap();
+            CreateMap<FooterAddress, UpdateFooterAdressCommand>().ReverseMap();
+            CreateMap<FooterAddress, RemoveFooterAdressCommand>().ReverseMap();
 
 
 
