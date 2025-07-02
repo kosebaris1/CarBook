@@ -14,9 +14,11 @@ using Application.Features.CQRS.Results.ContactResults;
 using Application.Features.Mediator.Commands.FeatureCommand;
 using Application.Features.Mediator.Commands.FooterAdressCommand;
 using Application.Features.Mediator.Commands.LocationCommand;
+using Application.Features.Mediator.Commands.PricingCommand;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
 using Application.Features.Mediator.Results.LocationResults;
+using Application.Features.Mediator.Results.PricingResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -87,6 +89,12 @@ namespace Application.Mapping
             CreateMap<Location, CreateLocationCommand>().ReverseMap();
             CreateMap<Location, RemoveLocationCommand>().ReverseMap();
             CreateMap<Location, UpdateLocationCommand>().ReverseMap();
+
+            CreateMap<Pricing, GetPricingQueryResult>().ReverseMap();
+            CreateMap<Pricing, GetPricingByIdQueryResult>().ReverseMap();
+            CreateMap<Pricing, UpdatePricingCommand>().ReverseMap();
+            CreateMap<Pricing, CreatePricingCommand>().ReverseMap();
+            CreateMap<Pricing, RemovePricingCommand>().ReverseMap();
 
 
 
