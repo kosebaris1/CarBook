@@ -16,11 +16,13 @@ using Application.Features.Mediator.Commands.FooterAdressCommand;
 using Application.Features.Mediator.Commands.LocationCommand;
 using Application.Features.Mediator.Commands.PricingCommand;
 using Application.Features.Mediator.Commands.ServiceCommand;
+using Application.Features.Mediator.Commands.SocialMediaCommand;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
 using Application.Features.Mediator.Results.LocationResults;
 using Application.Features.Mediator.Results.PricingResults;
 using Application.Features.Mediator.Results.ServiceResults;
+using Application.Features.Mediator.Results.SocialMediaResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -103,6 +105,12 @@ namespace Application.Mapping
             CreateMap<Service, RemoveServiceCommand>().ReverseMap();
             CreateMap<Service, CreateServiceCommand>().ReverseMap();
             CreateMap<Service, UpdateServiceCommand>().ReverseMap();
+
+            CreateMap<SocialMedia, GetSocialMediaByIdQueryResult>().ReverseMap();
+            CreateMap<SocialMedia, GetSocialMediaQueryResult>().ReverseMap();
+            CreateMap<SocialMedia, UpdateSocialMediaCommand>().ReverseMap();
+            CreateMap<SocialMedia, CreateSocialMediaCommand>().ReverseMap();
+            CreateMap<SocialMedia, RemoveSocialMediaCommand>().ReverseMap();
 
 
 
