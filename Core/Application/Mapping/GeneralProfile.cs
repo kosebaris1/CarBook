@@ -15,10 +15,12 @@ using Application.Features.Mediator.Commands.FeatureCommand;
 using Application.Features.Mediator.Commands.FooterAdressCommand;
 using Application.Features.Mediator.Commands.LocationCommand;
 using Application.Features.Mediator.Commands.PricingCommand;
+using Application.Features.Mediator.Commands.ServiceCommand;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
 using Application.Features.Mediator.Results.LocationResults;
 using Application.Features.Mediator.Results.PricingResults;
+using Application.Features.Mediator.Results.ServiceResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -95,6 +97,12 @@ namespace Application.Mapping
             CreateMap<Pricing, UpdatePricingCommand>().ReverseMap();
             CreateMap<Pricing, CreatePricingCommand>().ReverseMap();
             CreateMap<Pricing, RemovePricingCommand>().ReverseMap();
+
+            CreateMap<Service, GetServiceQueryResult>().ReverseMap();
+            CreateMap<Service, GetServiceByIdQueryResult>().ReverseMap();
+            CreateMap<Service, RemoveServiceCommand>().ReverseMap();
+            CreateMap<Service, CreateServiceCommand>().ReverseMap();
+            CreateMap<Service, UpdateServiceCommand>().ReverseMap();
 
 
 
