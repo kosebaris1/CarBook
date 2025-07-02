@@ -13,8 +13,10 @@ using Application.Features.CQRS.Results.CategoryResults;
 using Application.Features.CQRS.Results.ContactResults;
 using Application.Features.Mediator.Commands.FeatureCommand;
 using Application.Features.Mediator.Commands.FooterAdressCommand;
+using Application.Features.Mediator.Commands.LocationCommand;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
+using Application.Features.Mediator.Results.LocationResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -79,6 +81,12 @@ namespace Application.Mapping
             CreateMap<FooterAddress, CreateFooterAdressCommand>().ReverseMap();
             CreateMap<FooterAddress, UpdateFooterAdressCommand>().ReverseMap();
             CreateMap<FooterAddress, RemoveFooterAdressCommand>().ReverseMap();
+
+            CreateMap<Location, GetLocationQueryResult>().ReverseMap();
+            CreateMap<Location, GetLocationByIdQueryResult>().ReverseMap();
+            CreateMap<Location, CreateLocationCommand>().ReverseMap();
+            CreateMap<Location, RemoveLocationCommand>().ReverseMap();
+            CreateMap<Location, UpdateLocationCommand>().ReverseMap();
 
 
 
