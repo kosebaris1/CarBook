@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWebApi", "presentation\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarWebUI", "Frontend\CarWebUI\CarWebUI.csproj", "{88833AAD-5CED-4398-864C-0D46B063BB15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Core\Application\Application.csproj", "{926B6ACD-6A4D-4FEC-9BF0-71B37E077931}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Core\Application\Application.csproj", "{926B6ACD-6A4D-4FEC-9BF0-71B37E077931}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
