@@ -17,12 +17,14 @@ using Application.Features.Mediator.Commands.LocationCommand;
 using Application.Features.Mediator.Commands.PricingCommand;
 using Application.Features.Mediator.Commands.ServiceCommand;
 using Application.Features.Mediator.Commands.SocialMediaCommand;
+using Application.Features.Mediator.Commands.TestimonialCommand;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
 using Application.Features.Mediator.Results.LocationResults;
 using Application.Features.Mediator.Results.PricingResults;
 using Application.Features.Mediator.Results.ServiceResults;
 using Application.Features.Mediator.Results.SocialMediaResults;
+using Application.Features.Mediator.Results.TestimonialResults;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -111,6 +113,12 @@ namespace Application.Mapping
             CreateMap<SocialMedia, UpdateSocialMediaCommand>().ReverseMap();
             CreateMap<SocialMedia, CreateSocialMediaCommand>().ReverseMap();
             CreateMap<SocialMedia, RemoveSocialMediaCommand>().ReverseMap();
+
+            CreateMap<Testimonial, GetTestimonialByIdQueryResult>().ReverseMap();
+            CreateMap<Testimonial, GetTestimonialQueryResult>().ReverseMap();
+			CreateMap<Testimonial, RemoveTestimonialCommand>().ReverseMap();
+            CreateMap<Testimonial, CreateTestimonialCommand>().ReverseMap();
+            CreateMap<Testimonial, UpdateTestimonialCommand>().ReverseMap();
 
 
 
