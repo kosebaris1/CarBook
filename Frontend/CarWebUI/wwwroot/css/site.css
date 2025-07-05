@@ -20,3 +20,32 @@ html {
 body {
   margin-bottom: 60px;
 }
+.about-section {
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+}
+
+.about-image {
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+}
+
+.bg-glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+    .btn-gradient:hover {
+        background: linear-gradient(135deg, #0056b3, #009ec3);
+        transform: scale(1.05);
+    }
