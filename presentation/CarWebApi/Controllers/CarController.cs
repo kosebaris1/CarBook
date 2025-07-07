@@ -2,6 +2,8 @@
 using Application.Features.CQRS.Handler.CarHandlers.Read;
 using Application.Features.CQRS.Handler.CarHandlers.Write;
 using Application.Features.CQRS.Queries.CarQueries;
+using Application.Features.Mediator.Queries.CarQueries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +19,9 @@ namespace CarWebApi.Controllers
         private readonly GetCarQueryHandler _getCarQueryHandler;
         private readonly GetCarByIdQueryHandler _getCarByIdQueryHandler;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
-        public CarController(CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler)
+
+        private readonly IMediator _mediator;
+        public CarController(CreateCarCommandHandler createCarCommandHandler, UpdateCarCommandHandler updateCarCommandHandler, RemoveCarCommandHandler removeCarCommandHandler, GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler, GetCarWithBrandQueryHandler getCarWithBrandQueryHandler, IMediator mediator)
         {
             _createCarCommandHandler = createCarCommandHandler;
             _updateCarCommandHandler = updateCarCommandHandler;
@@ -25,6 +29,7 @@ namespace CarWebApi.Controllers
             _getCarQueryHandler = getCarQueryHandler;
             _getCarByIdQueryHandler = getCarByIdQueryHandler;
             _getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
+            _mediator = mediator;
         }
 
 
@@ -46,6 +51,13 @@ namespace CarWebApi.Controllers
         public async Task<IActionResult> GetCarListWithBrand()
         {
             var values = await _getCarWithBrandQueryHandler.Handle();
+            return Ok(values);
+        }
+        
+       [HttpGet("GetLast5CarsWithBrand")]
+        public async Task<IActionResult> GetLast5CarsWithBrand()
+        {
+           var values= await _mediator.Send(new GetLast5CarsWithBrandQuery());
             return Ok(values);
         }
 
