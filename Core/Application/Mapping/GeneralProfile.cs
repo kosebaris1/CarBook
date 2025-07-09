@@ -11,6 +11,7 @@ using Application.Features.CQRS.Results.BrandResults;
 using Application.Features.CQRS.Results.CarResults;
 using Application.Features.CQRS.Results.CategoryResults;
 using Application.Features.CQRS.Results.ContactResults;
+using Application.Features.Mediator.Commands.AuthorCommand;
 using Application.Features.Mediator.Commands.FeatureCommand;
 using Application.Features.Mediator.Commands.FooterAdressCommand;
 using Application.Features.Mediator.Commands.LocationCommand;
@@ -18,6 +19,8 @@ using Application.Features.Mediator.Commands.PricingCommand;
 using Application.Features.Mediator.Commands.ServiceCommand;
 using Application.Features.Mediator.Commands.SocialMediaCommand;
 using Application.Features.Mediator.Commands.TestimonialCommand;
+using Application.Features.Mediator.Queries.AuthorQueries;
+using Application.Features.Mediator.Results.AuthorResults;
 using Application.Features.Mediator.Results.CarResults;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
@@ -27,6 +30,7 @@ using Application.Features.Mediator.Results.ServiceResults;
 using Application.Features.Mediator.Results.SocialMediaResults;
 using Application.Features.Mediator.Results.TestimonialResults;
 using AutoMapper;
+using Domain;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -123,6 +127,12 @@ namespace Application.Mapping
 			CreateMap<Testimonial, RemoveTestimonialCommand>().ReverseMap();
             CreateMap<Testimonial, CreateTestimonialCommand>().ReverseMap();
             CreateMap<Testimonial, UpdateTestimonialCommand>().ReverseMap();
+
+            CreateMap<Author, GetAuthorByIdQueryResult>().ReverseMap();
+            CreateMap<Author, GetAuthorQueryResult>().ReverseMap();
+            CreateMap<Author, CreateAuthorCommand>().ReverseMap();
+            CreateMap<Author, UpdateAuthorCommand>().ReverseMap();
+            CreateMap<Author, RemoveAuthorCommand>().ReverseMap();
 
 
 
