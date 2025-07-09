@@ -28,9 +28,11 @@ namespace Application.Features.Mediator.Handlers.AuthorHandlers.Write
                 var value = await _repository.GetByIdAsync(request.Id);
                 await _repository.RemoveAsync(value);
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine($"Error in RemoveAuthorCommand Handler: {ex.Message}");
                 throw;
             }
+        }
     }
 }

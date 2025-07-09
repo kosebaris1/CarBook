@@ -24,9 +24,10 @@ namespace Application.Features.Mediator.Handlers.AuthorHandlers.Read
 
         public async Task<List<GetAuthorQueryResult>> Handle(GetAuthorQuery request, CancellationToken cancellationToken)
         {
+            var result = await _repository.GetAllAsync();
+
             try
             {
-                var result = await _repository.GetAllAsync();
                 return _mapper.Map<List<GetAuthorQueryResult>>(result);
             }
             catch (Exception ex)

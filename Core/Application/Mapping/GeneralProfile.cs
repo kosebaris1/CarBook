@@ -12,6 +12,7 @@ using Application.Features.CQRS.Results.CarResults;
 using Application.Features.CQRS.Results.CategoryResults;
 using Application.Features.CQRS.Results.ContactResults;
 using Application.Features.Mediator.Commands.AuthorCommand;
+using Application.Features.Mediator.Commands.BlogCommand;
 using Application.Features.Mediator.Commands.FeatureCommand;
 using Application.Features.Mediator.Commands.FooterAdressCommand;
 using Application.Features.Mediator.Commands.LocationCommand;
@@ -20,7 +21,9 @@ using Application.Features.Mediator.Commands.ServiceCommand;
 using Application.Features.Mediator.Commands.SocialMediaCommand;
 using Application.Features.Mediator.Commands.TestimonialCommand;
 using Application.Features.Mediator.Queries.AuthorQueries;
+using Application.Features.Mediator.Queries.BlogQueries;
 using Application.Features.Mediator.Results.AuthorResults;
+using Application.Features.Mediator.Results.BlogResults;
 using Application.Features.Mediator.Results.CarResults;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
@@ -133,6 +136,20 @@ namespace Application.Mapping
             CreateMap<Author, CreateAuthorCommand>().ReverseMap();
             CreateMap<Author, UpdateAuthorCommand>().ReverseMap();
             CreateMap<Author, RemoveAuthorCommand>().ReverseMap();
+
+            CreateMap<Blog, GetBlogQueryResult>()
+                        .ForMember(dest => dest.AuthorId, opt => opt.MapFrom(src => src.AuthorId))
+    .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CategoryId))
+    .ForSourceMember(src => src.Author, opt => opt.DoNotValidate())
+    .ForSourceMember(src => src.Category, opt => opt.DoNotValidate());
+            CreateMap<Blog, GetBlogByIdQueryResult>()
+                .ForMember(dest => dest.AuthorId, opt => opt.MapFrom(src => src.AuthorId))
+    .ForMember(dest => dest.CategoryId, opt => opt.MapFrom(src => src.CategoryId))
+    .ForSourceMember(src => src.Author, opt => opt.DoNotValidate())
+    .ForSourceMember(src => src.Category, opt => opt.DoNotValidate());
+            CreateMap<Blog, CreateBlogCommand>().ReverseMap();
+            CreateMap<Blog, UpdateBlogCommand>().ReverseMap();
+            CreateMap<Blog, RemoveBlogCommand>().ReverseMap();
 
 
 

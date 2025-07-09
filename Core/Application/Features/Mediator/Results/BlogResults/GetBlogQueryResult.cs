@@ -1,13 +1,14 @@
 ﻿using Domain.Entities;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Application.Features.Mediator.Results.BlogResults
 {
-    public class Blog
+    public class GetBlogQueryResult
     {
         public int BlogId { get; set; }
 
@@ -15,13 +16,10 @@ namespace Domain
 
         public int AuthorId { get; set; }
 
-        public Author Author { get; set; }
-
         public string CoverImageUrl { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }  
     }
 }

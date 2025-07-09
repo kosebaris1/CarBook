@@ -14,6 +14,6 @@ namespace Application.Features.Mediator.Results.AuthorResults
 
         public string ImageUrl { get; set; }
 
-        public string Description { get; set; }s
+        public string Description { get; set; }
     }
 }

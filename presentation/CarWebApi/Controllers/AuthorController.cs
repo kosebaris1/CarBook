@@ -52,7 +52,7 @@ namespace CarWebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
-            await _mediator.Send(new RemoveServiceCommand(id));
+            await _mediator.Send(new RemoveAuthorCommand(id));
             return Ok("yazar bilgisi başarıyla silindi");
         }
     }
