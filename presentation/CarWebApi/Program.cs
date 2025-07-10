@@ -13,12 +13,14 @@ using Application.Features.CQRS.Handler.ContactHandlers.Read;
 using Application.Features.CQRS.Handler.ContactHandlers.Write;
 using Application.Features.CQRS.Queries;
 using Application.Interfaces;
+using Application.Interfaces.BlogInterfaces;
 using Application.Interfaces.CarInterfaces;
 using Application.Mapping;
 using Application.Services;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
 using Persistance.Repository;
+using Persistance.Repository.BlogRepositories;
 using Persistance.Repository.CarRepositories;
 
 namespace CarWebApi
@@ -31,6 +33,7 @@ namespace CarWebApi
             builder.Services.AddAutoMapper(typeof(GeneralProfile).Assembly);
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddScoped<ICarRepository, CarRepository>();
+            builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 
             builder.Services.AddScoped<GetAboutByIdQueryHandler>();
             builder.Services.AddScoped<GetAboutQueryHandler>();
@@ -70,6 +73,7 @@ namespace CarWebApi
             builder.Services.AddScoped<GetContactByIdQueryHandler>();
             builder.Services.AddScoped<CreateContactCommandHandler>();
             builder.Services.AddScoped<UpdateContactCommandHandler>();
+            builder.Services.AddScoped<RemoveContactCommandHandler>();
             builder.Services.AddScoped<RemoveContactCommandHandler>();
 
             builder.Services.AddApplicationService(builder.Configuration);

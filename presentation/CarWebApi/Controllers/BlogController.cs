@@ -28,6 +28,16 @@ namespace CarWebApi.Controllers
             }
             return Ok(result);
         }
+        [HttpGet,Route("GetLast3BlogsWithAuthor")]
+        public async Task<IActionResult> GetLast3BlogsWithAuthor()
+        {
+            var result = await _mediator.Send(new GetLast3BlogsWithAuthorQuery());
+            if (result is null || !result.Any())
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBlogById(int id)
         {
