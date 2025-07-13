@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Mediator\Handlers\CarHandlers\Write\" />
+    <Folder Include="Features\Mediator\Handlers\CarPricingHandlers\Write\" />
   </ItemGroup>
 
 </Project>

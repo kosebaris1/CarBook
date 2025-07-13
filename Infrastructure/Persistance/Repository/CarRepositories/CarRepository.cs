@@ -27,6 +27,7 @@ namespace Persistance.Repository.CarRepositories
 
         }
 
+
         public async Task<List<Car>> GetLast5CarsWithBrands()
         {
             var values = await _context.Cars

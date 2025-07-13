@@ -24,6 +24,7 @@ using Application.Features.Mediator.Queries.AuthorQueries;
 using Application.Features.Mediator.Queries.BlogQueries;
 using Application.Features.Mediator.Results.AuthorResults;
 using Application.Features.Mediator.Results.BlogResults;
+using Application.Features.Mediator.Results.CarPricingResults;
 using Application.Features.Mediator.Results.CarResults;
 using Application.Features.Mediator.Results.FeatureResults;
 using Application.Features.Mediator.Results.FooterAdressResults;
@@ -76,6 +77,12 @@ namespace Application.Mapping
 
             CreateMap<Car, GetLast5CarsWithBrandQueryResult>()
          .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand.Name));
+
+            CreateMap<CarPricing, GetCarPricingWithCarsQueryResult>()
+               .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.Car.Brand.Name))
+               .ForMember(dest => dest.Model, opt => opt.MapFrom(src => src.Car.Model))
+               .ForMember(dest => dest.CoverImageUrl, opt => opt.MapFrom(src => src.Car.CoverImageUrl));
+
 
             CreateMap<Category, GetCategoryByIdQueryResult>().ReverseMap();
             CreateMap<Category, GetCategoryQueryResult>().ReverseMap();

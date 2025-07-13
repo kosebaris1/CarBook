@@ -15,12 +15,14 @@ using Application.Features.CQRS.Queries;
 using Application.Interfaces;
 using Application.Interfaces.BlogInterfaces;
 using Application.Interfaces.CarInterfaces;
+using Application.Interfaces.CarPricingInterface;
 using Application.Mapping;
 using Application.Services;
 using Microsoft.EntityFrameworkCore;
 using Persistance.Context;
 using Persistance.Repository;
 using Persistance.Repository.BlogRepositories;
+using Persistance.Repository.CarPricingRepository;
 using Persistance.Repository.CarRepositories;
 
 namespace CarWebApi
@@ -34,6 +36,7 @@ namespace CarWebApi
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddScoped<ICarRepository, CarRepository>();
             builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+            builder.Services.AddScoped<ICarPricingRepository, CarPricingRepository>();
 
             builder.Services.AddScoped<GetAboutByIdQueryHandler>();
             builder.Services.AddScoped<GetAboutQueryHandler>();

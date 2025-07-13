@@ -12,5 +12,7 @@ namespace Application.Interfaces.CarInterfaces
         Task<List<Car>> GetCarsListWithBrands();
 
         Task<List<Car>> GetLast5CarsWithBrands();
+
+      
     }
 }
