@@ -156,6 +156,11 @@ namespace Application.Mapping
     .ForSourceMember(src => src.Category, opt => opt.DoNotValidate());
             CreateMap<Blog, GetLast3BlogsWithAuthorQueryResult>()
             .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.Name));
+            CreateMap<Blog, GetAllBlogsWithAuthorQueryResult>()
+                .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.Name))
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name))
+                .ForSourceMember(src => src.Author, opt => opt.DoNotValidate())
+                .ForSourceMember(src => src.Category, opt => opt.DoNotValidate());
             CreateMap<Blog, CreateBlogCommand>().ReverseMap();
             CreateMap<Blog, UpdateBlogCommand>().ReverseMap();
             CreateMap<Blog, RemoveBlogCommand>().ReverseMap();
