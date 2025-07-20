@@ -19,9 +19,12 @@ using Application.Features.Mediator.Commands.LocationCommand;
 using Application.Features.Mediator.Commands.PricingCommand;
 using Application.Features.Mediator.Commands.ServiceCommand;
 using Application.Features.Mediator.Commands.SocialMediaCommand;
+using Application.Features.Mediator.Commands.TagCloudCommand;
 using Application.Features.Mediator.Commands.TestimonialCommand;
+using Application.Features.Mediator.Handlers.TagCloudHandlers.Write;
 using Application.Features.Mediator.Queries.AuthorQueries;
 using Application.Features.Mediator.Queries.BlogQueries;
+using Application.Features.Mediator.Queries.TagCloudQueries;
 using Application.Features.Mediator.Results.AuthorResults;
 using Application.Features.Mediator.Results.BlogResults;
 using Application.Features.Mediator.Results.CarPricingResults;
@@ -32,6 +35,7 @@ using Application.Features.Mediator.Results.LocationResults;
 using Application.Features.Mediator.Results.PricingResults;
 using Application.Features.Mediator.Results.ServiceResults;
 using Application.Features.Mediator.Results.SocialMediaResults;
+using Application.Features.Mediator.Results.TagCloudResults;
 using Application.Features.Mediator.Results.TestimonialResults;
 using AutoMapper;
 using Domain;
@@ -166,7 +170,11 @@ namespace Application.Mapping
             CreateMap<Blog, RemoveBlogCommand>().ReverseMap();
 
 
-
+            CreateMap<TagCloud, GetTagCloudByIdQueryResult>().ReverseMap();
+            CreateMap<TagCloud, GetTagCloudQueryResult>().ReverseMap();
+            CreateMap<TagCloud, CreateTagCloudCommand>().ReverseMap();
+            CreateMap<TagCloud, UpdateTagCloudCommand>().ReverseMap();
+            CreateMap<TagCloud, RemoveTagCloudCommand>().ReverseMap();
 
 
         }
