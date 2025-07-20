@@ -16,6 +16,7 @@ using Application.Interfaces;
 using Application.Interfaces.BlogInterfaces;
 using Application.Interfaces.CarInterfaces;
 using Application.Interfaces.CarPricingInterface;
+using Application.Interfaces.TagCloudInterfaces;
 using Application.Mapping;
 using Application.Services;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,7 @@ using Persistance.Repository;
 using Persistance.Repository.BlogRepositories;
 using Persistance.Repository.CarPricingRepository;
 using Persistance.Repository.CarRepositories;
+using Persistance.Repository.TagCloudRepositories;
 
 namespace CarWebApi
 {
@@ -37,6 +39,7 @@ namespace CarWebApi
             builder.Services.AddScoped<ICarRepository, CarRepository>();
             builder.Services.AddScoped<IBlogRepository, BlogRepository>();
             builder.Services.AddScoped<ICarPricingRepository, CarPricingRepository>();
+            builder.Services.AddScoped<ITagCloudRepository, TagCloudRepository>();
 
             builder.Services.AddScoped<GetAboutByIdQueryHandler>();
             builder.Services.AddScoped<GetAboutQueryHandler>();

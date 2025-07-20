@@ -1,15 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DTO.TagCloudDtos;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace CarWebUI.ViewComponents.BlogsViewComponents
 {
     public class _BlogDetailCloudTagByBlogComponentPartial : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            // Here you can add logic to fetch cloud tags related to the blog
-            // For now, we will just return the view without any data
+        private readonly IHttpClientFactory _httpClientFactory;
 
-            return View();
+        public _BlogDetailCloudTagByBlogComponentPartial(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync(int id)
+        {
+
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7008/api/TagCloud/GetTagCloudByBlogId/" + id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultGetByBlogIdTagCloudDto>>(jsonData);
+                return View(values);
+            }
+            else
+            {
+                // Handle error or return an empty list
+                return View(Enumerable.Empty<ResultGetByBlogIdTagCloudDto>());
+            }
         }
     }
 }

@@ -1,14 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DTO.BlogDtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CarWebUI.ViewComponents.BlogsViewComponents
 {
     public class _BlogDetailsMainComponentPartial : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public _BlogDetailsMainComponentPartial(IHttpClientFactory httpClientFactory)
         {
-            // You can add any logic here if needed, such as fetching data from a service
-            // For now, we will just return the view
-            return View();
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync(int id)
+        {
+         var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7008/api/Blog/"+id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultGetBlogByIdDto>(jsonData);
+                return View(values);
+            }
+            else
+            {
+                return View(Enumerable.Empty<ResultGetBlogByIdDto>());
+            }
+
         }
     }
 }

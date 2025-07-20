@@ -177,6 +177,9 @@ namespace Application.Mapping
             CreateMap<TagCloud, RemoveTagCloudCommand>().ReverseMap();
 
 
+            CreateMap<TagCloud, GetTagCloudByBlogIdQueryResult>().ReverseMap();
+
+
         }
     }
 }

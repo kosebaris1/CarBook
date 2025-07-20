@@ -32,6 +32,7 @@ namespace CarWebUI.Controllers
         {
             ViewBag.V1 = "Blog Detay";
             ViewBag.V2 = "Blog Detaylarımızı İnceleyin";
+            ViewBag.BlogId = id;
             return View();
         }
     }
