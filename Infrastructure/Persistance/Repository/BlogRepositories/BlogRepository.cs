@@ -27,6 +27,16 @@ namespace Persistance.Repository.BlogRepositories
             return values;
         }
 
+        public Task<List<Blog>> GetBlogsByAuthorId(int id)
+        {
+           var values = _context.Blogs
+                .Include(x => x.Author)
+                .Where(x => x.BlogId == id)
+                .ToListAsync();
+
+            return values;
+        }
+
         public Task<List<Blog>> GetLast3BlogsWithAuthor()
         {
            var values= _context.Blogs

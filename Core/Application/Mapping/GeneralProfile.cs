@@ -163,6 +163,8 @@ namespace Application.Mapping
             CreateMap<Blog, GetAllBlogsWithAuthorQueryResult>()
                 .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.Name))
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name))
+                  .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Author.Description))
+                .ForMember(dest => dest.AuthorImageUrl, opt => opt.MapFrom(src => src.Author.ImageUrl))
                 .ForSourceMember(src => src.Author, opt => opt.DoNotValidate())
                 .ForSourceMember(src => src.Category, opt => opt.DoNotValidate());
             CreateMap<Blog, CreateBlogCommand>().ReverseMap();
@@ -175,11 +177,16 @@ namespace Application.Mapping
             CreateMap<TagCloud, CreateTagCloudCommand>().ReverseMap();
             CreateMap<TagCloud, UpdateTagCloudCommand>().ReverseMap();
             CreateMap<TagCloud, RemoveTagCloudCommand>().ReverseMap();
-
+            
 
             CreateMap<TagCloud, GetTagCloudByBlogIdQueryResult>().ReverseMap();
 
-
+            CreateMap<Blog, GetBlogByAuthorIdQueryResult>()
+              .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.Name))
+                .ForMember(dest => dest.AuthorDescription, opt => opt.MapFrom(src => src.Author.Description))
+              .ForMember(dest => dest.AuthorImageUrl, opt => opt.MapFrom(src => src.Author.ImageUrl))
+              .ForSourceMember(src => src.Author, opt => opt.DoNotValidate())
+              .ForSourceMember(src => src.Category, opt => opt.DoNotValidate());
         }
     }
 }

@@ -12,6 +12,7 @@ using Application.Features.CQRS.Handler.CategoryHandler.Write;
 using Application.Features.CQRS.Handler.ContactHandlers.Read;
 using Application.Features.CQRS.Handler.ContactHandlers.Write;
 using Application.Features.CQRS.Queries;
+using Application.Features.RepositoryPattern;
 using Application.Interfaces;
 using Application.Interfaces.BlogInterfaces;
 using Application.Interfaces.CarInterfaces;
@@ -25,6 +26,7 @@ using Persistance.Repository;
 using Persistance.Repository.BlogRepositories;
 using Persistance.Repository.CarPricingRepository;
 using Persistance.Repository.CarRepositories;
+using Persistance.Repository.CommentRepositories;
 using Persistance.Repository.TagCloudRepositories;
 
 namespace CarWebApi
@@ -40,6 +42,7 @@ namespace CarWebApi
             builder.Services.AddScoped<IBlogRepository, BlogRepository>();
             builder.Services.AddScoped<ICarPricingRepository, CarPricingRepository>();
             builder.Services.AddScoped<ITagCloudRepository, TagCloudRepository>();
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
 
             builder.Services.AddScoped<GetAboutByIdQueryHandler>();
             builder.Services.AddScoped<GetAboutQueryHandler>();

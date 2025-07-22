@@ -48,6 +48,14 @@ namespace CarWebApi.Controllers
             }
             return Ok(result);
         }
+        [HttpGet("GetBlogByAuthorId")]
+        public async Task<IActionResult> GetBlogByAuthorId(int id)
+        {
+            var result = await _mediator.Send(new GetBlogByAuthorIdQuery(id));
+           
+            return Ok(result);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBlogById(int id)
         {

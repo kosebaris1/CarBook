@@ -22,5 +22,7 @@ namespace Application.Features.Mediator.Results.BlogResults
         public string CategoryName { get; set; }
 
         public string  Description { get; set; }
+        public string  AuthorDescription { get; set; }
+        public string  AuthorImageUrl { get; set; }
     }
 }
